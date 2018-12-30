@@ -1,0 +1,39 @@
+.HeroContainer {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  height: 100vh;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  transform-style: preserve-3d;
+  perspective: 100px;
+}
+
+.Image1 {
+    background: url('../../images/flower-open.jpg') no-repeat bottom;
+}
+
+.Image2 {
+    background: url('../../images/flower-close.jpg') no-repeat bottom;
+}
+
+/* .HeroContainer::before {
+  animation: fade-slide-down 2s 0.5s cubic-bezier(0, 0.5, 0, 1) forwards;
+  background: url('../../images/flower-open.jpg') no-repeat bottom;
+  background-size: cover;
+  content: '';
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.HeroContainer::after {
+  animation: rotate-up 0.5s 0.5s cubic-bezier(0, 0.5, 0, 1) forwards;
+  content: '';
+} */
