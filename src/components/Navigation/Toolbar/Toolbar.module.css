@@ -1,0 +1,11 @@
+.Container {
+  width: 100%;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 90;
+}
