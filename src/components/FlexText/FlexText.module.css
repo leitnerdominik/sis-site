@@ -1,0 +1,21 @@
+.Container {
+  padding: 10px;
+  margin: 40px auto;
+  width: 90%;
+}
+
+.Title {
+  text-align: center;
+  color: #10519e;
+}
+
+.Content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Content p {
+  padding: 0 10px;
+  text-align: justify; 
+}
