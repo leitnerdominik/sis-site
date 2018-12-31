@@ -1,10 +1,12 @@
 html {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+
 body {
   margin: 0;
+  background-color: #f1f1f1;
 }
 article,
 aside,
@@ -198,7 +200,7 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -251,6 +253,7 @@ h2 {
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
   line-height: 1.1;
+  color: #803018;
 }
 h3 {
   margin-left: 0;
