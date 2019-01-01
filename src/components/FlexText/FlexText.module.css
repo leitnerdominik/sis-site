@@ -6,13 +6,16 @@
 
 .Title {
   text-align: center;
-  color: #10519e;
+  /* color: hsla(0, 0%, 13%, 0.8); */
+  color: hsla(0, 0%, 0%, 0.8);
 }
 
 .Content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 }
 
 .Content p {

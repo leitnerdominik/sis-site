@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  padding: 10px;
 }
 
 .Card {
@@ -12,11 +13,11 @@
   box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 2px 1px -1px rgba(0,0,0,0.12);
   border-radius: 4px;
   padding: 20px;
-  background-color: #4a9dff;
-  color: #fff;
+  /* background-color: #4a9dff; */
+  color: hsla(0, 0%, 0%, 0.8);
 }
 
 .Title {
-  color: #10519e;
+  color: hsla(0, 0%, 0%, 0.8);
   font-weight: bold;
 }
