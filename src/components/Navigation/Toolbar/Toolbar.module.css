@@ -5,7 +5,40 @@
   top: 0;
   left: 0;
   background-color: transparent;
+  transition: background-color 0.5s ease 0s;
   padding: 0 20px;
   box-sizing: border-box;
   z-index: 90;
+  color: white;
+}
+
+.Solid {
+  background-color: white;
+  transition: background-color 1s ease 0s;
+  color: black;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24);
+}
+
+.Toolbar {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+.NavItems {
+  display: inline-block;
+}
+
+
+@media (max-width: 899px) {
+  .NavItems, .DesktopOnly {
+    display: none;
+  }
+
+  .Container {
+    z-index: 300;
+  }
 }
