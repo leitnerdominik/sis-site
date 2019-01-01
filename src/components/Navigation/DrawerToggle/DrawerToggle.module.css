@@ -1,0 +1,102 @@
+.DrawerToggleContainer {
+  width: 40px;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.DrawerToggle, .ShowClose {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  transition: all 300ms cubic-bezier(.61, .01, .42, 1);
+  cursor: pointer;
+  background: transparent;
+  border: 0px;
+}
+
+.DrawerToggle div, .ShowClose div {
+  height: 0px;
+  border: 1.5px solid black;
+  width: 22px;
+  display: block;
+  position: absolute;
+  transition: all 300ms cubic-bezier(.61, .01, .42, 1);
+  /* background:#fff; */
+}
+
+.DrawerToggle:focus, .ShowClose:focus {
+  outline: 0px;
+}
+
+.DrawerToggle div:nth-child(1) {
+  top: 0px;
+}
+
+.DrawerToggle div:nth-child(2) {
+  top: 8px;
+}
+
+.DrawerToggle div:nth-child(3) {
+  top: 16px;
+}
+
+.DrawerToggle div:nth-child(3):before {
+  opacity: 0;
+  content: '';
+  border: 2px solid black;
+  display: block;
+  position: relative;
+  top: 0.25px;
+}
+
+.ShowClose div:nth-child(3):before,
+.ShowClose div:nth-child(3):before,
+.ShowClose div:nth-child(2) {
+  opacity: 0;
+  transition: all 200ms;
+}
+
+.ShowClose div {
+  border: 1.5px solid black;
+  height: 0px;
+  border-radius: 0%;
+  margin-left: -1px;
+  margin-top: 6px;
+  animation: division 300ms linear 1;
+  width: 25px;
+  top: 0px;
+}
+
+.ShowClose div:nth-child(2) {
+  width: 0px;
+}
+
+.ShowClose div:nth-child(3) {
+  transform: rotate(45deg);
+}
+
+.ShowClose div:nth-child(1) {
+  transform: rotate(-45deg);
+}
+
+@keyframes division {
+  0% {
+    transform: rotate(180deg);
+  }
+}
+
+@media (min-width: 900px) {
+  .DrawerToggleContainer {
+    display: none;
+  }
+}
