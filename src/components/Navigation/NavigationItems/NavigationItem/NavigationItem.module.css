@@ -1,4 +1,7 @@
 .ListItem {
   margin: 0;
   cursor: pointer;
+  height: 100%;
+  padding: 20px;
+  font-weight: bold;
 }

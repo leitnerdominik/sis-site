@@ -5,7 +5,6 @@ import NavigationItem from './NavigationItem/NavigationItem';
 import classes from './NavigationItems.module.css';
 
 const navigationItems = ({ pages }) => {
-  console.log(pages[0]);
   return (
     <ul className={classes.Nav}>
       <NavigationItem click={pages[0]}>Beschreibung</NavigationItem>

@@ -3,5 +3,11 @@
   padding: 0;
   list-style-type: none;
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
+}
+
+@media (min-width: 900px) {
+  .Nav {
+    flex-flow: row;
+  }
 }
