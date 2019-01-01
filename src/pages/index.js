@@ -8,27 +8,74 @@ import FlexText from '../components/FlexText/FlexText';
 import Card from '../components/Card/Card';
 import SEO from '../components/SEO/SEO';
 import Toolbar from '../components/Navigation/Toolbar/Toolbar';
+import SideDrawer from '../components/Navigation/SideDrawer/SideDrawer';
 
 import TreeSilhouette from '../svg/abstract-tree-silhouette';
 
 class IndexPage extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      navTransparent: true,
+      showSideDrawer: false,
+    };
+
+    this.sideDrawerCloseHandler = this.sideDrawerCloseHandler.bind(this);
+    this.sideDrawerToggleHandler = this.sideDrawerToggleHandler.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener(
+      'scroll',
+      e => {
+        const currentScrollHeight = e.srcElement.scrollTop;
+        if (currentScrollHeight > 100 && this.state.navTransparent !== false) {
+          this.setState({ navTransparent: false });
+        } else if (
+          currentScrollHeight === 0 &&
+          this.state.navTransparent !== true
+        ) {
+          this.setState({ navTransparent: true });
+        }
+      },
+      true
+    );
+  }
+
+  sideDrawerCloseHandler() {
+    this.setState({ showSideDrawer: false });
+  }
+
+  sideDrawerToggleHandler() {
+    this.setState(prevState => ({ showSideDrawer: !prevState.showSideDrawer }));
   }
 
   render() {
     const { data } = this.props;
+    const { navTransparent, showSideDrawer } = this.state;
     return (
       <Fragment>
         <SEO />
         <Toolbar
+          page0={() => this.parallax.scrollTo(0)}
+          page1={() => this.parallax.scrollTo(1)}
+          page2={() => this.parallax.scrollTo(2)}
+          page3={() => this.parallax.scrollTo(3)}
+          isNavTransparent={navTransparent}
+          drawerClicked={this.sideDrawerToggleHandler}
+          sideDrawerOpen={showSideDrawer}
+        />
+        <SideDrawer
+          open={showSideDrawer}
+          closed={this.sideDrawerCloseHandler}
+          page0={() => this.parallax.scrollTo(0)}
           page1={() => this.parallax.scrollTo(1)}
           page2={() => this.parallax.scrollTo(2)}
           page3={() => this.parallax.scrollTo(3)}
         />
         <Parallax
           pages={4}
-          // scrolling={false}
           ref={ref => (this.parallax = ref)}
         >
           <ParallaxLayer
@@ -39,35 +86,11 @@ class IndexPage extends Component {
             <Hero images={data.flowers.edges} />
           </ParallaxLayer>
           <ParallaxLayer
-            offset={1}
+            offset={1.1}
             speed={0.2}
             onClick={() => this.parallax.scrollTo(2)}
           >
             <FlexText title="Kurzbeschreibung">
-              <p>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                sed diam voluptua. At vero eos et accusam et justo duo dolores
-                et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
-                est Lorem ipsum dolor sit amet.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                sed diam voluptua. At vero eos et accusam et justo duo dolores
-                et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
-                est Lorem ipsum dolor sit amet.
-              </p>
               <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
