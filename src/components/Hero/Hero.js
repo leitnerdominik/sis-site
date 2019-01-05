@@ -6,25 +6,11 @@ import Img from 'gatsby-image';
 
 import classes from './Hero.module.css';
 
-const hero = ({ images }) => {
+const hero = () => {
   const settings = {
     autoplay: true,
-    autoplaySpeed: 10000,
+    autoplaySpeed: 6000,
   };
-
-  const imgs = images.map(img => (
-    <div key={img.node.id}>
-      <div className={classes.Text}>
-        <p>Manchmal, da möchte ich mich zurückziehen können</p>
-        <p>Tief in mein Haus. Ruhe.</p>
-        <p>Nichts dringt hinein. Nichts hinaus.</p>
-        <p>Geborgen.</p>
-      </div>
-      <div className={classes.Images}>
-        <Img className={classes.Image} fluid={img.node.childImageSharp.fluid} />
-      </div>
-    </div>
-  ));
 
   return (
     <Fragment>

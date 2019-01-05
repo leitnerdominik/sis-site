@@ -7,7 +7,7 @@ import Logo from '../../Logo/Logo';
 import classes from './SideDrawer.module.css';
 
 const sideDrawer = props => {
-  const { open, closed, page0, page1, page2, page3 } = props;
+  const { open, closed, page0, page1, page2, page3, activeLink } = props;
 
   let attachedClasses = [classes.SideDrawer, classes.Close];
 
@@ -23,7 +23,7 @@ const sideDrawer = props => {
           <Logo clicked={page0} />
         </div>
         <nav>
-          <NavigationItems pages={[page1, page2, page3]} />
+          <NavigationItems pages={[page1, page2, page3]} activeLink={activeLink} />
         </nav>
       </div>
     </Fragment>

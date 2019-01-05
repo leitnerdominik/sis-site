@@ -15,6 +15,7 @@ const toolbar = props => {
     isNavTransparent,
     drawerClicked,
     sideDrawerOpen,
+    activeLink,
   } = props;
 
   const navBarClasses = [classes.Container];
@@ -30,7 +31,7 @@ const toolbar = props => {
           <Logo clicked={page0} isSolid={!isNavTransparent}/>
         </div>
         <nav className={classes.NavItems}>
-          <NavigationItems pages={[page1, page2, page3]} />
+          <NavigationItems activeLink={activeLink} pages={[page1, page2, page3]} />
         </nav>
       </div>
     </div>

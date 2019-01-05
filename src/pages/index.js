@@ -2,15 +2,13 @@ import React, { Fragment, Component } from 'react';
 import { graphql } from 'gatsby';
 import { Parallax, ParallaxLayer } from 'react-spring/addons';
 
-import Layout from '../components/layout';
+// import Layout from '../components/layout';
 import Hero from '../components/Hero/Hero';
 import FlexText from '../components/FlexText/FlexText';
 import Card from '../components/Card/Card';
 import SEO from '../components/SEO/SEO';
 import Toolbar from '../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../components/Navigation/SideDrawer/SideDrawer';
-
-import TreeSilhouette from '../svg/abstract-tree-silhouette';
 
 class IndexPage extends Component {
   constructor(props) {
@@ -19,6 +17,7 @@ class IndexPage extends Component {
     this.state = {
       navTransparent: true,
       showSideDrawer: false,
+      currentPage: 0,
     };
 
     this.sideDrawerCloseHandler = this.sideDrawerCloseHandler.bind(this);
@@ -29,14 +28,17 @@ class IndexPage extends Component {
     window.addEventListener(
       'scroll',
       e => {
-        const currentScrollHeight = e.srcElement.scrollTop;
-        if (currentScrollHeight > 100 && this.state.navTransparent !== false) {
-          this.setState({ navTransparent: false });
-        } else if (
-          currentScrollHeight === 0 &&
-          this.state.navTransparent !== true
-        ) {
-          this.setState({ navTransparent: true });
+        // const currentScrollHeight = e.srcElement.scrollTop;
+        const currentPage = Math.round(this.parallax.current / this.parallax.space);
+        // const currentPage =
+        //   page % 1 > 0.9 ? Math.round(page) : Math.floor(page);
+        console.log(currentPage);
+        if (currentPage !== 0 && this.state.navTransparent !== false) {
+          this.setState({ navTransparent: false, currentPage });
+        } else if (currentPage === 0 && this.state.navTransparent !== true) {
+          this.setState({ navTransparent: true, currentPage });
+        } else if (currentPage !== this.state.currentPage) {
+          this.setState({ currentPage });
         }
       },
       true
@@ -53,7 +55,7 @@ class IndexPage extends Component {
 
   render() {
     const { data } = this.props;
-    const { navTransparent, showSideDrawer } = this.state;
+    const { navTransparent, showSideDrawer, currentPage } = this.state;
     return (
       <Fragment>
         <SEO />
@@ -62,6 +64,7 @@ class IndexPage extends Component {
           page1={() => this.parallax.scrollTo(1)}
           page2={() => this.parallax.scrollTo(2)}
           page3={() => this.parallax.scrollTo(3)}
+          activeLink={currentPage}
           isNavTransparent={navTransparent}
           drawerClicked={this.sideDrawerToggleHandler}
           sideDrawerOpen={showSideDrawer}
@@ -73,11 +76,10 @@ class IndexPage extends Component {
           page1={() => this.parallax.scrollTo(1)}
           page2={() => this.parallax.scrollTo(2)}
           page3={() => this.parallax.scrollTo(3)}
+          activeLink={currentPage}
         />
-        <Parallax
-          pages={4}
-          ref={ref => (this.parallax = ref)}
-        >
+        <Parallax pages={4} ref={ref => (this.parallax = ref)}>
+          {console.log(() => this.parallax.current)}
           <ParallaxLayer
             offset={0}
             speed={0.2}
@@ -104,7 +106,6 @@ class IndexPage extends Component {
                 est Lorem ipsum dolor sit amet.
               </p>
             </FlexText>
-            <TreeSilhouette />
           </ParallaxLayer>
           <ParallaxLayer
             offset={2}
