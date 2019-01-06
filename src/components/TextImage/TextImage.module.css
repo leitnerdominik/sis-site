@@ -1,0 +1,32 @@
+.Container {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.TextImage {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.Text {
+  max-width: 550px;
+}
+
+.Image {
+  margin: 0 auto;
+}
+
+.Text h2 {
+  color: hsla(0, 0%, 0%, 0.8);
+  margin: 0;
+  padding: 0;
+}
+
+.Image img {
+  border-radius: 50%;
+}
