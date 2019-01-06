@@ -12,6 +12,8 @@ import Toolbar from '../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../components/Navigation/SideDrawer/SideDrawer';
 import TextImage from '../components/TextImage/TextImage';
 
+import '../components/layout.css';
+
 class IndexPage extends Component {
   constructor(props) {
     super(props);
