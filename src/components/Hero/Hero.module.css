@@ -60,6 +60,17 @@
 
 }
 
+@media (max-width: 800px) {
+  .Text {
+    margin: 0 auto;
+    top: 60%;
+  }
+  .Text p {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
 /* .Container {
   padding: 20px;
   display: grid;
