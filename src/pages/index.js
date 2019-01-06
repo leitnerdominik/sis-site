@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import { Parallax, ParallaxLayer } from 'react-spring/addons';
 import Img from 'gatsby-image';
 
-// import Layout from '../components/layout';
 import Hero from '../components/Hero/Hero';
 import FlexText from '../components/FlexText/FlexText';
 import Card from '../components/Card/Card';
@@ -11,6 +10,8 @@ import SEO from '../components/SEO/SEO';
 import Toolbar from '../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../components/Navigation/SideDrawer/SideDrawer';
 import TextImage from '../components/TextImage/TextImage';
+
+import '../components/layout.css';
 
 class IndexPage extends Component {
   constructor(props) {

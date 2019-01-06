@@ -1,13 +1,14 @@
 import React from 'react'
 
-import Layout from '../components/layout'
-// import SEO from '../components/seo'
 
 const NotFoundPage = () => (
-  <Layout>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-)
+  <div style={{
+    margin: '20px auto',
+    textAlign: 'center',
+  }}>
+    <h1>Nicht gefunden</h1>
+    <p>Du bist auf den Holzweg.</p>
+  </div>
+);
 
 export default NotFoundPage
