@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import { graphql } from 'gatsby';
 import { Parallax, ParallaxLayer } from 'react-spring/addons';
+import Img from 'gatsby-image';
 
 // import Layout from '../components/layout';
 import Hero from '../components/Hero/Hero';
@@ -9,6 +10,7 @@ import Card from '../components/Card/Card';
 import SEO from '../components/SEO/SEO';
 import Toolbar from '../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../components/Navigation/SideDrawer/SideDrawer';
+import TextImage from '../components/TextImage/TextImage';
 
 class IndexPage extends Component {
   constructor(props) {
@@ -28,11 +30,9 @@ class IndexPage extends Component {
     window.addEventListener(
       'scroll',
       e => {
-        // const currentScrollHeight = e.srcElement.scrollTop;
-        const currentPage = Math.round(this.parallax.current / this.parallax.space);
-        // const currentPage =
-        //   page % 1 > 0.9 ? Math.round(page) : Math.floor(page);
-        console.log(currentPage);
+        const currentPage = Math.round(
+          this.parallax.current / this.parallax.space
+        );
         if (currentPage !== 0 && this.state.navTransparent !== false) {
           this.setState({ navTransparent: false, currentPage });
         } else if (currentPage === 0 && this.state.navTransparent !== true) {
@@ -79,7 +79,6 @@ class IndexPage extends Component {
           activeLink={currentPage}
         />
         <Parallax pages={4} ref={ref => (this.parallax = ref)}>
-          {console.log(() => this.parallax.current)}
           <ParallaxLayer
             offset={0}
             speed={0.2}
@@ -90,7 +89,7 @@ class IndexPage extends Component {
           <ParallaxLayer
             offset={1.1}
             speed={0.2}
-            onClick={() => this.parallax.scrollTo(2)}
+            // onClick={() => this.parallax.scrollTo(2)}
           >
             <FlexText title="Kurzbeschreibung">
               <p>
@@ -108,11 +107,14 @@ class IndexPage extends Component {
             </FlexText>
           </ParallaxLayer>
           <ParallaxLayer
-            offset={2}
+            offset={2.1}
             speed={0.2}
-            onClick={() => this.parallax.scrollTo(3)}
+            // onClick={() => this.parallax.scrollTo(3)}
           >
-            <Card title="Unsere Selbsthilfegruppentreffen">
+            <TextImage
+              img={data.autumn.childImageSharp.fixed}
+              title="Selbsthilfegruppentreffen"
+            >
               <p>
                 Jeden ersten Freitag im Monat um 19:30 Uhr im Sozialsprengel
                 Brixen-Umgebung
@@ -124,17 +126,35 @@ class IndexPage extends Component {
                 Einzelgespräche mit der Leiterin der Selbsthilfegruppe sind auch
                 unabhängig von der Gruppentreffen möglich.
               </p>
-            </Card>
+            </TextImage>
           </ParallaxLayer>
           <ParallaxLayer
             offset={3}
             speed={0.2}
-            onClick={() => this.parallax.scrollTo(0)}
+            // onClick={() => this.parallax.scrollTo(0)}
           >
             <Card title="Kontakt">
+              <p
+                style={{
+                  marginTop: '30px',
+                  fontSize: '1.2em',
+                  fontWeight: 'bold',
+                }}
+              >
+                Selbsthilfegruppe Stottern für Betroffene
+              </p>
+              <Img fixed={data.speech.childImageSharp.fixed} />
+              <p
+                style={{
+                  textDecoration: 'underline',
+                }}
+              >
+                Leiterin der Selbsthilfegruppe
+              </p>
               <p>Gudrun Reden</p>
               <p>
-                E-Mail: <a href="mailto: gudrun@reden.it">gudrun@reden.it</a>
+                E-Mail:{' '}
+                <a href="mailto: beispielmail@test.it">beispielmail@test.it</a>
               </p>
             </Card>
           </ParallaxLayer>
@@ -154,9 +174,23 @@ export const query = graphql`
           id
           childImageSharp {
             fluid(maxHeight: 1100) {
-              ...GatsbyImageSharpFluid_noBase64
+              ...GatsbyImageSharpFluid
             }
           }
+        }
+      }
+    }
+    autumn: file(relativePath: { regex: "/^autumn.*/" }) {
+      childImageSharp {
+        fixed(width: 250, height: 250) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    speech: file(relativePath: { regex: "/^speech.*/" }) {
+      childImageSharp {
+        fixed(width: 64, height: 64) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
