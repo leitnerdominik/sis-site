@@ -1,12 +1,17 @@
 import React from 'react';
 
+import Dash from '../Dash/Dash';
+
 import classes from './FlexText.module.css';
 
 const flexText = ({title, children}) => (
   <div className={classes.Container}>
-    <h2 className={classes.Title}>{title}</h2>
-    <div className={classes.Content}>
-      {children}
+    <div>
+      <h2 className={classes.Title}>{title}</h2>
+      <Dash />
+      <div className={classes.Content}>
+        {children}
+      </div>
     </div>
   </div>
 );
