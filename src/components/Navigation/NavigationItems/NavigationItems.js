@@ -27,6 +27,9 @@ const navigationItems = ({ pages, activeLink }) => {
       <NavigationItem isActive={link3} click={pages[2]}>
         Kontakt
       </NavigationItem>
+      <NavigationItem type="link">
+        Faltblatt
+      </NavigationItem>
     </ul>
   );
 };

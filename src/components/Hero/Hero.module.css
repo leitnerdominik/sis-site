@@ -1,42 +1,57 @@
-.HeroContainer {
-  align-items: center;
-  display: flex;
-  font-size: 18px;
+.Hero {
+  background: url('../../images/flower-open.jpg') no-repeat center;
+  background-size: cover;
   height: 100vh;
-  justify-content: center;
   position: relative;
-  overflow: hidden;
-  text-align: center;
-  transform-style: preserve-3d;
-  perspective: 100px;
 }
 
-.Image1 {
-    background: url('../../images/flower-open.jpg') no-repeat center;
-}
-
-.Image2 {
-    background: url('../../images/flower-close.jpg') no-repeat bottom;
-    background-size: cover;
-}
-
-.HeroContainer::before {
-  animation: fade-slide-down 2s 0.5s cubic-bezier(0, 0.5, 0, 1) forwards;
-  /* background: url('../../images/flower-open.jpg') no-repeat bottom; */
-  background-size: contain;
-  content: '';
-  opacity: 0;
+.Title {
+  color: #fff;
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 2px #000;
 }
 
-.HeroContainer::after {
-  animation: rotate-up 0.5s 0.5s cubic-bezier(0, 0.5, 0, 1) forwards;
-  content: '';
+.Btn {
+  padding: 12px 48px;
+  border-radius: 6px;
+  font-weight: 700;
+  background: #f17c2d;
+  color: #fff;
+  border: none;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.Btn:focus {
+  outline: none;
+}
+
+.Btn:hover {
+  cursor: pointer;
+  color: rgb(201, 201, 201);
+  transition: .4s;
+}
+
+.Container {
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  left: 50%;
+  width: 630px;
+  color: #000;
+  transform: translate(-50%, -50%);
+}
+
+.Text {
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 2px 2px 4px #000;
+  font-weight: bold;
+  line-height: 1.5rem;
 }
 
 @keyframes fade-slide-down {
@@ -50,16 +65,6 @@
   }
 }
 
-.Text {
-  bottom: 20px;
-  right: 20px;
-  position: absolute;
-  font-size: 1.8vw;
-  font-weight: bold;
-  color: #fff;
-
-}
-
 @media (max-width: 800px) {
   .Text {
     margin: 0 auto;
@@ -70,26 +75,3 @@
     font-size: 18px;
   }
 }
-
-/* .Container {
-  padding: 20px;
-  display: grid;
-  height: 100vh;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
-} */
-
-/* .Images, .Text {
-  /* max-width: 500px; */
-  /* height: 100%;
-  width: 100%;
-  display: inline-block;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; 
-}
-
-.Images {
-  height: 50%;
-  width: 100%;
-} */

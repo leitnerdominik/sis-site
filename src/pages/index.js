@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { Parallax, ParallaxLayer } from 'react-spring/addons';
 import Img from 'gatsby-image';
 
+// import Layout from '../components/layout';
 import Hero from '../components/Hero/Hero';
 import FlexText from '../components/FlexText/FlexText';
 import Card from '../components/Card/Card';
@@ -10,6 +11,7 @@ import SEO from '../components/SEO/SEO';
 import Toolbar from '../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../components/Navigation/SideDrawer/SideDrawer';
 import TextImage from '../components/TextImage/TextImage';
+import Description from '../components/Description/Description';
 
 import '../components/layout.css';
 
@@ -38,7 +40,7 @@ class IndexPage extends Component {
           this.setState({ navTransparent: false, currentPage });
         } else if (currentPage === 0 && this.state.navTransparent !== true) {
           this.setState({ navTransparent: true, currentPage });
-        } else if (currentPage !== this.state.currentPage) {
+        } else if (currentPage !== this.state.currentPage && currentPage) {
           this.setState({ currentPage });
         }
       },
@@ -80,31 +82,16 @@ class IndexPage extends Component {
           activeLink={currentPage}
         />
         <Parallax pages={4} ref={ref => (this.parallax = ref)}>
-          <ParallaxLayer
-            offset={0}
-            speed={0.2}
-            onClick={() => this.parallax.scrollTo(1)}
-          >
-            <Hero images={data.flowers.edges} />
+          <ParallaxLayer offset={0} speed={0.2}>
+            <Hero scrollToContact={() => this.parallax.scrollTo(3)} />
           </ParallaxLayer>
           <ParallaxLayer
-            offset={1.1}
+            offset={1.2}
             speed={0.2}
             // onClick={() => this.parallax.scrollTo(2)}
           >
-            <FlexText title="Kurzbeschreibung">
-              <p>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                sed diam voluptua. At vero eos et accusam et justo duo dolores
-                et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
-                est Lorem ipsum dolor sit amet.
-              </p>
+            <FlexText title="Selbsthilfegruppe Stottern für Betroffene">
+              <Description />
             </FlexText>
           </ParallaxLayer>
           <ParallaxLayer
@@ -137,25 +124,19 @@ class IndexPage extends Component {
             <Card title="Kontakt">
               <p
                 style={{
-                  marginTop: '30px',
-                  fontSize: '1.2em',
+                  fontSize: '1.1em',
                   fontWeight: 'bold',
                 }}
               >
                 Selbsthilfegruppe Stottern für Betroffene
               </p>
               <Img fixed={data.speech.childImageSharp.fixed} />
-              <p
-                style={{
-                  textDecoration: 'underline',
-                }}
-              >
-                Leiterin der Selbsthilfegruppe
-              </p>
-              <p>Gudrun Reden</p>
+              <p>Leiterin: Gudrun Reden</p>
               <p>
-                E-Mail:{' '}
-                <a href="mailto: beispielmail@test.it">beispielmail@test.it</a>
+                <span role="img" aria-label="E-Mail">📧{'  '}</span>
+                <a href="mailto: sis.stottern@gmail.com">
+                  sis.stottern@gmail.com
+                </a>
               </p>
             </Card>
           </ParallaxLayer>

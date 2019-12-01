@@ -1,35 +1,25 @@
-import React, { Fragment } from 'react';
-import Slider from 'react-slick';
-import '../../../node_modules/slick-carousel/slick/slick.css';
-import '../../../node_modules/slick-carousel/slick/slick-theme.css';
+import React from 'react';
+// import Slider from 'react-slick';
+// import '../../../node_modules/slick-carousel/slick/slick.css';
+// import '../../../node_modules/slick-carousel/slick/slick-theme.css';
 
 import classes from './Hero.module.css';
 
-const hero = () => {
-  const settings = {
-    autoplay: true,
-    autoplaySpeed: 6000,
-  };
+const hero = ({scrollToContact}) => {
 
   return (
-    <Fragment>
-      <Slider {...settings}>
-        <header className={`${classes.HeroContainer} ${classes.Image1}`}>
-          <section className={classes.Text}>
-            <p>Manchmal, da würde ich meine Hülle gern loswerden. Frei.</p>
-            <p>Etwas wagen. Kontakt haben.</p>
-            <p>Vielleicht gar Zuwendung erfahren.</p>
-            <p>Risiko.</p>
-          </section>
-        </header>
-        <header className={`${classes.HeroContainer} ${classes.Image2}`}>
-          <section className={classes.Text}><p>Manchmal, da möchte ich mich zurückziehen können.</p>
-            <p>Tief in mein Haus. Ruhe.</p>
-            <p>Nichts dringt hinein. Nichts hinaus.</p>
-            <p>Geborgen.</p></section>
-        </header>
-      </Slider>
-    </Fragment>
+    <div className={classes.Hero}>
+      <h2 className={classes.Title}>
+        Selbsthilfegruppe Stottern für Betroffene
+      </h2>
+      <div className={classes.Container}>
+        <p className={classes.Text}>
+          Wir treffen uns jeden ersten Freitag im Monat um 19:30 Uhr im
+          Sozialsprengel Brixen-Umgebung
+        </p>
+        <button onClick={scrollToContact} className={classes.Btn}>Kontakt</button>
+      </div>
+    </div>
   );
 };
 

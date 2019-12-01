@@ -1,14 +1,16 @@
 import React from 'react'
 
-
 const NotFoundPage = () => (
   <div style={{
-    margin: '20px auto',
-    textAlign: 'center',
+    position: 'absolute',
+    top: '20%',
+    left: '50%',
+    transform: 'translateX(-50%)',
   }}>
-    <h1>Nicht gefunden</h1>
-    <p>Du bist auf den Holzweg.</p>
+    <h2 style={{
+      textAlign: 'center',
+    }}>404 Seite nicht gefunden.</h2>
   </div>
-);
+)
 
 export default NotFoundPage

@@ -5,3 +5,8 @@
   padding: 20px;
   font-weight: bold;
 }
+
+.ListItem a {
+  text-decoration: none;
+  color: inherit;
+}
